@@ -1,0 +1,22 @@
+name: "sample"
+replicaCount: 1
+
+ingressController: nginx
+
+service:
+  type: ClusterIP
+
+domainName: "docs.werify.net"
+
+tls:
+  enabled: false
+  clusterIssuer: le-clusterissuer
+  secretName: docs-werify-net-tls
+
+image:
+  repository: "werify.{{ .Values.name }}-docs"
+  pullPolicy: Always
+  tag: latest
+
+resources: {}
+tolerations: {}
