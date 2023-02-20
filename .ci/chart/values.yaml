@@ -6,14 +6,15 @@ ingressController: nginx
 service:
   type: ClusterIP
 
-domainName: "docs.trader4.net"
+domainName: "docs.werify.net"
 
 tls:
   enabled: false
-  secretName: docs-trader4-net-wildcard-tls
+  clusterIssuer: le-clusterissuer
+  secretName: docs-werify-net-tls
 
 image:
-  repository: "trader4.{{ .Values.name }}-docs"
+  repository: "werify.{{ .Values.name }}-docs"
   pullPolicy: Always
   tag: latest
 
