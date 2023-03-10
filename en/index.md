@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Trader4 Docs
+title: Werify Docs
 titleTemplate: More engineered, lightweight, customizable, standard output format commitizen adapter
 
 hero:

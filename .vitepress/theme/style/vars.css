@@ -8,7 +8,7 @@
   --vp-layout-max-width: 1490px;
   --vp-c-accent: rgb(218, 180, 11);
   --vp-c-brand: #03a472;
-  --vp-c-brand-light: #fe7a7a;
+  --vp-c-brand-light: #ffffff;
   --vp-c-brand-lighter: #0b7302;
   --vp-c-brand-dark: #027361;
   --vp-c-brand-darker: #027361;
@@ -33,7 +33,7 @@
 }
 
 .dark {
-  --vp-c-brand: #d05a6e;
+  --vp-c-brand: #03a472;
   --vp-c-bg: rgb(26, 26, 26);
   --vp-c-bg-alt: rgb(23, 23, 23);
   --vp-c-bg-nav: rgba(23, 23, 23, 0.7);
@@ -83,13 +83,13 @@
 .dark {
   --vp-home-hero-name-background: -webkit-linear-gradient(
     270deg,
-    #f25959 30%,
-    #e0cdee
+    #027361 30%,
+    #03a472
   );
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
     #fff1f1 30%,
-    #f25959
+    #03a472
   );
 }
 

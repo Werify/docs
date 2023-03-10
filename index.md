@@ -1,14 +1,14 @@
 ---
 layout: home
-title: Trader4 Docs Index
+title: Werify Docs Index
 titleTemplate: More engineered, lightweight, customizable, standard output format commitizen adapter
 
 hero:
-  name: Trader4 Docs
+  name: Werify Docs
   text: ""
   tagline: More engineered, lightweight, customizable, standard output format Commitizen adapter and CLI.
   image:
-    src: /images/logo.svg
+    src: /images/Werify logo-H.svg
     alt: Trader4 Docs
   actions:
     - theme: brand
@@ -18,7 +18,7 @@ hero:
       text: Introduction
       link: /en/guide/
     - theme: alt
-      text: Why Trader4 Docs?
+      text: Why Werify Docs?
       link: /en/guide/
     - theme: alt
       text: API
