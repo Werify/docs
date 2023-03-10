@@ -5,82 +5,41 @@ export const en: DefaultTheme.Sidebar = {
     {
       text: "Products",
       collapsible: true,
-      collapsed: true,
+      collapsed: false,
       link: "/en/products/",
       items: [
         {
-          text: "📊 Supply and Demand",
-          link: "/en/products/supply-demand",
+          text: "🗃️ Help Desk",
+          link: "/en/products/help-desk"
         },
         {
-          text: "📐 Trend Line",
-          link: "/en/products/trend-line",
+          text: "📝 Comment",
+          link: "/en/products/comment",
         },
         {
-          text: "🎛️ Algo Portfolio",
-          link: "/en/products/algo-portfolio",
+          text: "👏 Clap",
+          link: "/en/products/clap",
         },
         {
-          text: "👧 Algo Mirzakhani",
-          link: "/en/products/mirzakhani",
+          text: "✉️ Feedback",
+          link: "/en/products/feedback",
         },
         {
-          text: "👨‍🎨 Algo Pishro",
-          link: "/en/products/pishro",
+          text: "✔️ Verification",
+          link: "/en/products/verification",
         },
         {
-          text: "👴 Algo Bob",
-          link: "/en/products/bob",
+          text: "🤳 eKYC",
+          link: "/en/products/ekyc",
         },
         {
-          text: "🤵 Algo Darren",
-          link: "/en/products/darren",
+          text: "ℹ️ Helpful",
+          link: "/en/products/helpful",
         },
         {
-          text: "👨‍💻 Jadi <small>(License System)</small>",
-          link: "/en/products/jadi",
+          text: "🚨 Report",
+          link: "/en/products/report",
         },
-        {
-          text: "👨‍🔬 Algo Dispenza",
-          link: "/en/products/dispenza",
-        },
-        {
-          text: "👨‍🔬 Samii <small>(Trading Framework)</small>",
-          link: "/en/products/samii",
-        },
-        {
-          text: "🎮 Algo MiaLand",
-          link: "/en/products/mialand",
-        },
-        {
-          text: "🏝️ KuroshTopia <small>(TradeHub)</small>",
-          link: "/en/products/jadi",
-        },
-        {
-          text: "Bazaar",
-          link: "/en/products/bazaar",
-        },
-        {
-          text: "Pythia",
-          link: "/en/products/pythia",
-        },
-        {
-          text: "💚 Yaseen",
-          link: "/en/products/yaseen",
-        },
-        {
-          text: "💀 Azrael",
-          link: "/en/products/azrael",
-        },
-        {
-          text: "Siddhartha",
-          link: "/en/products/siddhartha",
-        },
-        {
-          text: "🕉️ Shiva",
-          link: "/en/products/shiva",
-        },
-
       ],
     },
     {
@@ -89,14 +48,15 @@ export const en: DefaultTheme.Sidebar = {
       collapsed: true,
       link: "/en/sdks/",
       items: [
-        { text: "Samii (Trading Framework)", link: "/en/skds/samii/intro" },
-        { text: "Trading Bot", link: "/en/skds/trading-bot/intro" },
-        { text: "Trading Terminal", link: "/en/skds/trading-terminal/intro" },
-        { text: "Trading API", link: "/en/skds/trading-api/intro" },
-        { text: "Trading SDK", link: "/en/skds/trading-sdk/intro" },
-        { text: "Trading Library", link: "/en/skds/trading-library/intro" },
-        { text: "Trading Platform", link: "/en/skds/trading-platform/intro" },
-        { text: "Trading Tools", link: "/en/skds/trading-tools/intro" },
+        { text: "Werify", link: "/en/skds/werify" },
+        { text: "Help Desk", link: "/en/skds/help-desk" },
+        { text: "Comment", link: "/en/skds/comment" },
+        { text: "Clap", link: "/en/skds/clap" },
+        { text: "Feedback", link: "/en/skds/feedback" },
+        { text: "Verification", link: "/en/skds/verification" },
+        { text: "eKYC", link: "/en/skds/ekyc" },
+        { text: "Helpful", link: "/en/skds/helpful" },
+        { text: "Report", link: "/en/skds/report" },
       ]
     },
     {
@@ -114,51 +74,13 @@ export const en: DefaultTheme.Sidebar = {
               link: "/en/api/user",
             },
             {
-              text: "Finance",
-              link: "/en/api/trader4/finance",
+              text: "Clap",
+              link: "/en/api/clap",
             },
             {
-              text: "Marketplace",
-              link: "/en/api/trader4/marketplace",
+              text: "Comment",
+              link: "/en/api/comment",
             },
-            {
-              text: "Cloud",
-              link: "/en/api/trader4/cloud",
-            },
-            {
-              text: "Bazaar (Social Trading)",
-              link: "/en/api/trader4/bazaar",
-            },
-            {
-              text: "Financial Engineering",
-              link: "/en/api/trader4/financial-engineering",
-            },
-            {
-              text: "Capital Road (Funded)",
-              link: "/en/api/trader4/capital-road",
-            },
-            {
-            text: "Werify",
-            link: "/en/api/werify/intro",
-            items: [
-              {
-                text: "oAuth",
-                link: "/en/api/werify/oauth",
-              },
-              {
-                text: "User",
-                link: "/en/api/werify/user",
-              },
-              {
-                text: "Clap",
-                link: "/en/api/werify/clap",
-              },
-              {
-                text: "Comment",
-                link: "/en/api/werify/comment",
-              },
-            ]
-        },
       ],
     },
   ],
