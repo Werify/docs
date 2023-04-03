@@ -17,7 +17,7 @@ import CodeGroupItem from "./components/CodeGroupItem.vue";
 import Response from "./components/Response.vue";
 import SelectLibraries from "./components/SelectLibraries.vue";
 import CodeBox from "./components/CodeBox.vue";
-import { CodeGroup } from "./components/CodeGroup";
+import  {CodeGroup}  from "./components/CodeGroup.ts";
 
 if (inBrowser) {
   import("./pwa");
@@ -40,8 +40,8 @@ export default {
     app.component("CodeGroup", CodeGroup);
     app.component("CodeGroupItem", CodeGroupItem);
     createMediumZoomProvider(app, router);
-    usePageAnalytics("G-V5E08LL4GP", "b1d9002033c7e550e55a51a23dca4f31");
-    //Custom Components By Trader4 Team ;)
+    // usePageAnalytics("", "");
+    // Custom Components By Trader4 Team ;)
     app.component("Response", Response);
     app.component("SelectLibraries", SelectLibraries);
     app.component("CodeBox", CodeBox);

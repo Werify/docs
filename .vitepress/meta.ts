@@ -8,7 +8,7 @@ export const keywords =
 export const descriptionEN =
   "More engineered, lightweight, customizable, standard output format commitizen adapter and API.";
 export const descriptionCN =
-  "工程性更强，轻量级，高度自定义，输出标准格式的 commitizen 适配器与 git commit 命令行工具。";
+  "";
 
 /** social links */
 export const ogTitle = "Trader4 Docs - commitizen adapter and API";
@@ -23,8 +23,8 @@ export const twitter = "https://twitter.com/zhengqbbb";
 export const version = 1;
 
 /** site search console  */
-export const googleVerify = "j6cNWewUj3QcJBpdv48t67XoDxdlKPQ6dwKgXg9Nigo";
-export const baiduVerify = "code-GZMUSi21Xe";
+export const googleVerify = "";
+export const baiduVerify = "code-";
 
 /* PWA runtime caching urlPattern regular expressions */
 /* eslint-disable prefer-regex-literals */
