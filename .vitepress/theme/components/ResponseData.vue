@@ -1,21 +1,16 @@
 <template>
-      <vue-json-pretty
-          :data="data"
-          style="direction: ltr"
-          class="p-3"
-          showLength
-          virtual
-          :showLine="false"
-      />
+  <vue-json-pretty :data="data" style="direction: ltr" class="p-3" showLength virtual :showLine="false" />
 </template>
 
-<script>
-import { ref } from 'vue'
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
 import VueJsonPretty from "vue-json-pretty";
 import "vue-json-pretty/lib/styles.css";
-import {withBase} from "vitepress";
+import { withBase } from "vitepress";
 
-export default {
+export default defineComponent({
+
+
   name: 'ResponseData',
   components: {
     VueJsonPretty
@@ -34,5 +29,5 @@ export default {
     }
     return { data }
   },
-}
+})
 </script>

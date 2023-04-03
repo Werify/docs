@@ -1,6 +1,5 @@
 <template>
   <ClientOnly>
-
     <div class="my-5 grid gap-6 md:grid-cols-2 grid-cols-1 items-center" :style="dir === 'rtl' ? 'direction:rtl' : ''">
       <div class="col-span-1">
         <slot />
