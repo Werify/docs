@@ -61,6 +61,8 @@ export default {
     onMounted(async () => {
       if (router.route.path === "/") {
         await router.go("/en/");
+      }
+      
       hideIndexPage();
     });
 
