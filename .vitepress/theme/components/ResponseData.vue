@@ -20,12 +20,14 @@ export default defineComponent({
   },
   async setup(props) {
     const data = ref(null);
-    await new Promise((r) => setTimeout(r, 2000));
-    try {
-      const res = await fetch(withBase(window.location.origin + '/' + props.jfile + '.json'), { method: 'GET' });
-      data.value = await res.json();
-    } catch (e) {
-      console.error(e);
+    if (!import.meta.env.SSR) {
+      await new Promise((r) => setTimeout(r, 2000));
+      try {
+        const res = await fetch(withBase(window.location.origin + '/' + props.jfile + '.json'), { method: 'GET' });
+        data.value = await res.json();
+      } catch (e) {
+        console.error(e);
+      }
     }
     return { data }
   },
