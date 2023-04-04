@@ -13,6 +13,7 @@ useMediumZoom();
 </script>
 
 <template>
+
   <div
     flex="~ wrap grow basis-30% md:row col"
     class="maauto max-w-1152px mt-14 lg:px-1 px-2 py-4 justify-between items-stretch"
@@ -69,4 +70,5 @@ useMediumZoom();
   <div class="flex flex-row text-xs mt-4 justify-center">
     <span>version:{{ version }}</span>
   </div>
+
 </template>

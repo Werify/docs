@@ -1,4 +1,4 @@
-import { h, watch, watchEffect } from "vue";
+import { h, onMounted,  watchEffect } from "vue";
 import Theme from "vitepress/theme";
 import { inBrowser, useData, useRouter } from "vitepress";
 import type { EnhanceAppContext } from "vitepress";
@@ -10,7 +10,6 @@ import "uno.css";
 
 import {
   createMediumZoomProvider,
-  usePageAnalytics,
 } from "./components/composables";
 import HomePage from "./components/HomePage.vue";
 import CodeGroupItem from "./components/CodeGroupItem.vue";
@@ -40,7 +39,7 @@ export default {
     app.component("CodeGroup", CodeGroup);
     app.component("CodeGroupItem", CodeGroupItem);
     createMediumZoomProvider(app, router);
-    usePageAnalytics("G-V5E08LL4GP", "b1d9002033c7e550e55a51a23dca4f31");
+    // usePageAnalytics("", "");
     //Custom Components By Trader4 Team ;)
     app.component("Response", Response);
     app.component("SelectLibraries", SelectLibraries);
@@ -58,9 +57,31 @@ export default {
   },
   setup() {
     const router = useRouter();
-    if (router.route.path === "/") {
-      router.go("/en/");
-    }
+    // Hide index page for Hydration completed but contains mismatches. ERROR
+    onMounted(async () => {
+      if (router.route.path === "/") {
+        await router.go("/en/");
+      }
+      
+      hideIndexPage();
+    });
+
+    // BEGIN: Hide index page for Hydration completed but contains mismatches. ERROR
+    const hideIndexPage = () => {
+      if (router.route.path !== "/en/") {
+        const VPHome = document.querySelector(".VPHome");
+        VPHome?.classList.add("hidden");
+        const appBar = document.querySelectorAll(".VPNavBarAppearance");
+        const socialLinks = document.querySelectorAll(".VPNavBarSocialLinks");
+        appBar.length > 1
+          ? appBar[0].setAttribute("style", "display:none !important")
+          : null;
+        socialLinks.length > 1
+          ? socialLinks[0].setAttribute("style", "display:none !important")
+          : null;
+      }
+    };
+
     const { lang } = useData();
     watchEffect(() => {
       if (typeof document !== "undefined")
