@@ -5,11 +5,11 @@ aside: false
 <!--@include: /partials/libraries.md-->
 
 
-<CodeBox lang="Restful" method="POST" endpoint="/v1/oauth/sign">
+<CodeBox lang="Restful" method="POST" endpoint="/api/werify/request-otp">
 
-# Sign
+# Request OTP
 
-Using our Sign Method, users are now able to easily request an One-Time Password (OTP) for added security. This powerful feature provides an extra layer of safety when it comes to your data security. With this added security, you can rest assured that your data is kept safe and secure.
+Using our request otp Method, users are now able to easily request an One-Time Password (OTP) for added security. This powerful feature provides an extra layer of safety when it comes to your data security. With this added security, you can rest assured that your data is kept safe and secure.
 
 `id` <sup><sub>String</sub></sup>, The identity of user account, it can be below items.
 
@@ -21,7 +21,10 @@ Using our Sign Method, users are now able to easily request an One-Time Password
 <template #code>
 
 ```bash
-$ curl https://api.werify.net/v1/oauth/sign
+$ curl https://api.werify.net/api/werify/request-otp 
+  --data '{
+    "identifier":"your_email"
+  }'
   --header 'Accept: application/json'
 ```
 
@@ -30,35 +33,35 @@ $ curl https://api.werify.net/v1/oauth/sign
 </CodeBox>
 
 
-<Response jfile="v1/werify/oauth/sign" >
+<Response jfile="v1/werify/oauth/request" >
 
 </Response>
 <br>
 <hr>
 <br>
 
-<CodeBox lang="Restful" method="POST" endpoint="/v1/oauth/verify">
+<CodeBox lang="Restful" method="POST" endpoint="/api/werify/verify-otp">
 
 # Verify
 
 Verification of Sent OTP code or Sent an email
 
-`id` <sup><sub>String</sub></sup>, The identity of user account, it can be below items.
+`id` <sup><sub>String</sub></sup>, The identitier of session you recieved from request otp.
 
-    ✔️ email                  hi@trader4.net   
-    ✔️ mobile_number          +447888872720  
-    ✔️ crypto                 bc1uw48ht4287287
-    ✔️ phone_number           +445528888852
+`hash` <sup><sub>String</sub></sup>, The hash of session you recieved from request otp.
 
-`code` <sup><sub>Integer</sub></sup>, Otp code sent
-
-    ✔️ code          123456
+`otp` <sup><sub>String</sub></sup>, Otp code sent to your email 
 
 <template #code>
 
 ```bash
-$ curl https://api.werify.net/v1/oauth/verify
+$ curl https://api.werify.net/api/werify/request-otp
   --header 'Accept: application/json'
+  --data '{
+    "hash": "6096cb42-1e60-4bdd-bfe0-55d5af00c978",
+    "otp": "222501",
+    "id": "487f2509-7125-4a2b-9d9a-d8182919c8e0"
+  }'
 ```
 
 </template>
@@ -78,15 +81,16 @@ $ curl https://api.werify.net/v1/oauth/verify
 
 # Qr
 
-Request for generate qr token
+Request for generate claimable qr id and hash
 
 
 <template #code>
 
 ```bash
 $ curl --request GET \
- https://api.werify.net/v1/oauth/qr
+ https://api.werify.net/api/werify/qr
   --header 'Accept: application/json'
+  --data '{}'
 ```
 
 </template>

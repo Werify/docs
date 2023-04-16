@@ -1,0 +1,10 @@
+{
+	"succeed": true,
+	"results": {
+		"type": "otp",
+		"hash": "41c63312-d356-4130-8e12-91c48486feca",
+		"id": "97a7a027-58ef-4d6b-8de7-dd40dcd1505d",
+		"created_at": "2023-04-16T07:04:53.000000Z"
+	},
+	"metas": []
+}
