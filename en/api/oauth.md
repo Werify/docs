@@ -5,11 +5,11 @@ aside: false
 <!--@include: /partials/libraries.md-->
 
 
-<CodeBox lang="Restful" method="POST" endpoint="/v1/oauth/sign">
+<CodeBox lang="Restful" method="POST" endpoint="/api/werify/request-otp">
 
-# Sign
+# Request OTP
 
-Using our Sign Method, users are now able to easily request an One-Time Password (OTP) for added security. This powerful feature provides an extra layer of safety when it comes to your data security. With this added security, you can rest assured that your data is kept safe and secure.
+Using our request otp Method, users are now able to easily request an One-Time Password (OTP) for added security. This powerful feature provides an extra layer of safety when it comes to your data security. With this added security, you can rest assured that your data is kept safe and secure.
 
 `id` <sup><sub>String</sub></sup>, The identity of user account, it can be below items.
 
@@ -21,7 +21,10 @@ Using our Sign Method, users are now able to easily request an One-Time Password
 <template #code>
 
 ```bash
-$ curl https://api.werify.net/v1/oauth/sign
+$ curl https://api.werify.net/api/werify/request-otp \
+  --data '{
+    "identifier":"your_email"
+  }'
   --header 'Accept: application/json'
 ```
 
@@ -30,35 +33,35 @@ $ curl https://api.werify.net/v1/oauth/sign
 </CodeBox>
 
 
-<Response jfile="v1/werify/oauth/sign" >
+<Response jfile="v1/werify/oauth/request" >
 
 </Response>
 <br>
 <hr>
 <br>
 
-<CodeBox lang="Restful" method="POST" endpoint="/v1/oauth/verify">
+<CodeBox lang="Restful" method="POST" endpoint="/api/werify/verify-otp">
 
-# Verify
+# Verify OTP
 
 Verification of Sent OTP code or Sent an email
 
-`id` <sup><sub>String</sub></sup>, The identity of user account, it can be below items.
+`id` <sup><sub>String</sub></sup>, The identitier of session you recieved from request otp.
 
-    ✔️ email                  hi@trader4.net   
-    ✔️ mobile_number          +447888872720  
-    ✔️ crypto                 bc1uw48ht4287287
-    ✔️ phone_number           +445528888852
+`hash` <sup><sub>String</sub></sup>, The hash of session you recieved from request otp.
 
-`code` <sup><sub>Integer</sub></sup>, Otp code sent
-
-    ✔️ code          123456
+`otp` <sup><sub>String</sub></sup>, Otp code sent to your email 
 
 <template #code>
 
 ```bash
-$ curl https://api.werify.net/v1/oauth/verify
-  --header 'Accept: application/json'
+$ curl https://api.werify.net/api/werify/verify-otp
+  --header 'Accept: application/json' \
+  --data '{
+    "hash": "6096cb42-1e60-4bdd-bfe0-55d5af00c978",
+    "otp": "222501",
+    "id": "487f2509-7125-4a2b-9d9a-d8182919c8e0"
+  }'
 ```
 
 </template>
@@ -78,15 +81,16 @@ $ curl https://api.werify.net/v1/oauth/verify
 
 # Qr
 
-Request for generate qr token
+Request for generate claimable qr id and hash
 
 
 <template #code>
 
 ```bash
 $ curl --request GET \
- https://api.werify.net/v1/oauth/qr
-  --header 'Accept: application/json'
+ https://api.werify.net/api/werify/qr
+  --header 'Accept: application/json' \
+  --data '{}'
 ```
 
 </template>
@@ -103,27 +107,60 @@ $ curl --request GET \
 
 <CodeBox lang="Restful" method="POST" endpoint="/v1/oauth/qr/authorize">
 
-# Qr Authorize
+# Qr Image
 
-Verification of qr token that generated
+Request for generate claimable qr image
 
-qr_token<sup><sub>String</sub></sup>, The token of qr generated, it can be below items.
-
-    ✔️ qr_token                  wrfad882860130067e284a7
 
 <template #code>
 
 ```bash
-$ curl --request POST \
- https://api.werify.net/v1/oauth/qr/authorize
-  --header 'Accept: application/json' - 'Authorization: Bearer [ACCESS_TOKEN]'
+$ curl --request GET \
+ https://api.werify.net/api/werify/qr-image
+  --header 'Accept: application/json'
+  --data '{}'
 ```
 
 </template>
 
 </CodeBox>
 
-<Response jfile="v1/werify/oauth/qr-authorize" >
+ <img src='/v1/werify/oauth/qr-image.svg'/>
+ 
+
+<br>
+<hr>
+<br>
+
+<CodeBox lang="Restful" method="POST" endpoint="/v1/oauth/qr/authorize">
+
+# Qr Claim
+
+Claim the generated QR
+
+qr_token<sup><sub>String</sub></sup>, The token of qr generated, it can be below items.
+
+`id` <sup><sub>String</sub></sup>, The identitier of session you recieved from request QR.
+
+`hash` <sup><sub>String</sub></sup>, The hash of session you recieved from request QR.
+
+<template #code>
+
+```bash
+$ curl --request POST \
+ https://api.werify.net/werify/qr-claim
+  --header 'Accept: application/json' - 'Authorization: Bearer [ACCESS_TOKEN]' \
+  --data '{
+	"id": "fbdd77cb-294d-4885-893c-dacb779b7a85",
+	"hash": "358bee92-74f2-4fe6-970f-4aaaa4bd10a4"
+  }
+```
+
+</template>
+
+</CodeBox>
+
+<Response jfile="v1/werify/oauth/qr-claim" >
 
 </Response>
 
@@ -132,33 +169,7 @@ $ curl --request POST \
 <br>
 
 
-
-<CodeBox lang="Restful" method="POST" endpoint="/v1/oauth/qr">
-
-# Qr Verification
-
-Verification of qr token that generated and return user info
-
-qr_token<sup><sub>String</sub></sup>, The qr token generated, it can be below items.
-
-    ✔️ qr_token                  wrfad882860130067e284a7
-
-<template #code>
-
-```bash
-$ curl --request POST \
- https://api.werify.net/v1/oauth/qr
-  --header 'Accept: application/json' - 'Authorization: Bearer [ACCESS_TOKEN]'
-```
-
-</template>
-
-</CodeBox>
-
-<Response jfile="v1/werify/oauth/qr-authorize" >
-
-</Response>
-
+ 
 
 
 
